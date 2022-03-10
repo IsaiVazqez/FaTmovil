@@ -56,8 +56,9 @@ class _LoginState extends State<Login> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
           keyboardType: TextInputType.emailAddress,
-          decoration: const InputDecoration(
-            icon: Icon(Icons.email),
+          decoration: InputDecoration(
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+            icon: const Icon(Icons.email),
             hintText: 'ejemplo@correo.com',
             labelText: 'Correo electronico',
           ),
@@ -75,8 +76,9 @@ class _LoginState extends State<Login> {
         child: TextField(
           keyboardType: TextInputType.emailAddress,
           obscureText: true,
-          decoration: const InputDecoration(
-            icon: Icon(Icons.password),
+          decoration: InputDecoration(
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+            icon: const Icon(Icons.password),
             hintText: 'Contraseña',
             labelText: 'Contraseña',
           ),
@@ -98,6 +100,7 @@ class _LoginState extends State<Login> {
               style: TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
             ),
           ),
@@ -105,7 +108,7 @@ class _LoginState extends State<Login> {
             borderRadius: BorderRadius.circular(100),
           ),
           elevation: 10.0,
-          color: const Color.fromARGB(255, 243, 61, 243),
+          color: const Color.fromARGB(255, 66, 226, 186),
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const HomeScreen()));
@@ -125,6 +128,7 @@ class _LoginState extends State<Login> {
               style: TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
             ),
           ),

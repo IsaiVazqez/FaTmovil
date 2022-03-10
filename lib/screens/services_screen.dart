@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 
 import '../routes/app_routes.dart';
 
@@ -41,8 +42,28 @@ class _ServicesScreenState extends State<ServicesScreen> {
             ),
           ],
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          elevation: 0,
+        bottomNavigationBar: SnakeNavigationBar.color(
+          behaviour: SnakeBarBehaviour.floating,
+          snakeShape: SnakeShape.circle,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+          elevation: 5,
+          padding: const EdgeInsets.all(20),
+
+          ///configuration for SnakeNavigationBar.color
+          snakeViewColor: Color.fromARGB(255, 81, 204, 177),
+          selectedItemColor:
+              SnakeShape.circle == SnakeShape.indicator ? Colors.black : null,
+          unselectedItemColor: Colors.blueGrey,
+
+          ///configuration for SnakeNavigationBar.gradient
+          //snakeViewGradient: selectedGradient,
+          //selectedItemGradient: snakeShape == SnakeShape.indicator ? selectedGradient : null,
+          //unselectedItemGradient: unselectedGradient,
+
+          showUnselectedLabels: false,
+          showSelectedLabels: false,
+
           currentIndex: home,
           onTap: (index) {
             setState(() {
@@ -54,8 +75,8 @@ class _ServicesScreenState extends State<ServicesScreen> {
             });
           },
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Perfil")
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile')
           ],
         ));
   }

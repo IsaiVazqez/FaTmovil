@@ -75,8 +75,9 @@ class _RegisterState extends State<Register> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
           keyboardType: TextInputType.emailAddress,
-          decoration: const InputDecoration(
-            icon: Icon(Icons.email),
+          decoration: InputDecoration(
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+            icon: const Icon(Icons.email),
             hintText: 'ejemplo@correo.com',
             labelText: 'Correo electronico',
           ),
@@ -94,8 +95,9 @@ class _RegisterState extends State<Register> {
         child: TextField(
           keyboardType: TextInputType.emailAddress,
           obscureText: true,
-          decoration: const InputDecoration(
-            icon: Icon(Icons.password),
+          decoration: InputDecoration(
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+            icon: const Icon(Icons.password),
             hintText: 'Contraseña',
             labelText: 'Contraseña',
           ),
@@ -124,7 +126,7 @@ class _RegisterState extends State<Register> {
             borderRadius: BorderRadius.circular(100),
           ),
           elevation: 10.0,
-          color: Color.fromARGB(255, 1, 36, 235),
+          color: const Color.fromARGB(255, 66, 226, 186),
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const HomeScreen()));
@@ -139,8 +141,9 @@ class _RegisterState extends State<Register> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
           keyboardType: TextInputType.emailAddress,
-          decoration: const InputDecoration(
-            icon: Icon(Icons.groups),
+          decoration: InputDecoration(
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+            icon: const Icon(Icons.groups),
             hintText: 'Cruz Azul',
             labelText: 'Nombre del Club',
           ),
@@ -158,8 +161,10 @@ class _RegisterState extends State<Register> {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: TextField(
             keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration(
-              icon: Icon(Icons.account_circle),
+            decoration: InputDecoration(
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+              icon: const Icon(Icons.account_circle),
               hintText: 'Isai Vazquez',
               labelText: 'Nombre y Apellido',
             ),
@@ -177,8 +182,9 @@ class _RegisterState extends State<Register> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
           keyboardType: TextInputType.emailAddress,
-          decoration: const InputDecoration(
-            icon: Icon(Icons.add_location_alt_rounded),
+          decoration: InputDecoration(
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+            icon: const Icon(Icons.add_location_alt_rounded),
             hintText: 'Calle 64 po 103...',
             labelText: 'Dirección',
           ),
@@ -195,8 +201,9 @@ class _RegisterState extends State<Register> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
           keyboardType: TextInputType.emailAddress,
-          decoration: const InputDecoration(
-            icon: Icon(Icons.contact_phone),
+          decoration: InputDecoration(
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+            icon: const Icon(Icons.contact_phone),
             hintText: '999292992',
             labelText: 'Teléfono',
           ),
@@ -213,8 +220,9 @@ class _RegisterState extends State<Register> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: TextField(
           keyboardType: TextInputType.emailAddress,
-          decoration: const InputDecoration(
-            icon: Icon(Icons.event_sharp),
+          decoration: InputDecoration(
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+            icon: const Icon(Icons.event_sharp),
             hintText: 'Lunes A Viernes de 5 a 9 pm',
             labelText: 'Horario',
           ),

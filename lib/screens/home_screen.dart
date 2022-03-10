@@ -118,7 +118,17 @@ class _HomeScreenState extends State<HomeScreen> {
             showSelectedLabels: false,
 
             currentIndex: home,
-            onTap: (index) => setState(() => home = index),
+            onTap: (index) {
+              setState(() {
+                if (home == index) {
+                  Navigator.pushReplacementNamed(
+                      context, AppRoutes.initialRoute);
+                } else {
+                  Navigator.pushReplacementNamed(
+                      context, AppRoutes.profileRoute);
+                }
+              });
+            },
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
               BottomNavigationBarItem(
@@ -208,8 +218,8 @@ class card2 extends StatelessWidget {
                 opacity: 50),
             gradient: LinearGradient(
               colors: [
-                Color.fromARGB(255, 62, 23, 235),
-                Color.fromARGB(255, 145, 36, 246)
+                Color.fromARGB(255, 203, 56, 248),
+                Color.fromARGB(255, 106, 15, 190)
               ],
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,

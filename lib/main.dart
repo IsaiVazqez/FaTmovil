@@ -23,7 +23,15 @@ class MyApp extends StatelessWidget {
                     appBarTheme: const AppBarTheme(
                         centerTitle: true,
                         foregroundColor: Color.fromARGB(221, 19, 13, 13)),
-                    scaffoldBackgroundColor: Colors.black87)
+                    scaffoldBackgroundColor: Colors.black87,
+/*                     textTheme: TextTheme(
+                      bodyText1: TextStyle(),
+                      bodyText2: TextStyle(),
+                    ).apply(
+                      bodyColor: Colors.orange,
+                      displayColor: Colors.blue,
+                    ), */
+                  )
                 : ThemeData.light().copyWith(
                     appBarTheme: const AppBarTheme(
                         centerTitle: true,

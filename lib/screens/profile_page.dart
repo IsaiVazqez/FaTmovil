@@ -74,7 +74,15 @@ class _ProfilePageState extends State<ProfilePage> {
           showSelectedLabels: false,
 
           currentIndex: home,
-          onTap: (index) => setState(() => home = index),
+          onTap: (index) {
+            setState(() {
+              if (home == index) {
+                Navigator.pushReplacementNamed(context, AppRoutes.profileRoute);
+              } else {
+                Navigator.pushReplacementNamed(context, AppRoutes.initialRoute);
+              }
+            });
+          },
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile')
