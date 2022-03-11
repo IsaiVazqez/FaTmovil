@@ -50,20 +50,24 @@ class _ProfilePageState extends State<ProfilePage> {
             buildDirecc(user),
             const SizedBox(height: 24),
             buildHorario(user),
-            const SizedBox(height: 24),
+            const SizedBox(height: 20),
+            buildUbicacion(user),
             Container(
               child: MapScreen(),
-              margin: const EdgeInsets.all(10),
+              margin: const EdgeInsets.only(
+                  top: 20, left: 35, right: 35, bottom: 5),
               width: 20,
-              height: 100,
+              height: 200,
             )
           ],
         ),
         bottomNavigationBar: SnakeNavigationBar.color(
           behaviour: SnakeBarBehaviour.floating,
           snakeShape: SnakeShape.circle,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+
           elevation: 5,
           padding: const EdgeInsets.all(20),
 
@@ -154,6 +158,19 @@ Widget buildHorario(User user) => Container(
       ),
     );
 
+Widget buildUbicacion(User user) => Container(
+      padding: const EdgeInsets.symmetric(horizontal: 48),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: const [
+          Text(
+            'Ubicación',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
+
 class MapScreen extends StatefulWidget {
   @override
   _MapScreenState createState() => _MapScreenState();
@@ -165,13 +182,34 @@ class _MapScreenState extends State<MapScreen> {
     zoom: 11.5,
   );
 
+  late GoogleMapController _googleMapController;
+
+  @override
+  void dispose() {
+    _googleMapController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GoogleMap(
-        myLocationButtonEnabled: false,
-        zoomControlsEnabled: false,
-        initialCameraPosition: _initialCameraPosition,
+    return const Center(
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+          bottomRight: Radius.circular(30),
+          bottomLeft: Radius.circular(30),
+        ),
+        child: Align(
+          alignment: Alignment.bottomRight,
+          heightFactor: 10,
+          widthFactor: 2.5,
+          child: GoogleMap(
+            myLocationButtonEnabled: false,
+            zoomControlsEnabled: false,
+            initialCameraPosition: _initialCameraPosition,
+          ),
+        ),
       ),
     );
   }
