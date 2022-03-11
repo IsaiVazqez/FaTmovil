@@ -72,7 +72,7 @@ class _ProfilePageState extends State<ProfilePage> {
           padding: const EdgeInsets.all(20),
 
           ///configuration for SnakeNavigationBar.color
-          snakeViewColor: Color.fromARGB(255, 81, 204, 177),
+          snakeViewColor: const Color.fromARGB(255, 81, 204, 177),
           selectedItemColor:
               SnakeShape.circle == SnakeShape.indicator ? Colors.black : null,
           unselectedItemColor: Colors.blueGrey,
@@ -125,7 +125,7 @@ Widget buildUpgradeButton() => ButtonWidget(
 Widget buildDirecc(User user) => Container(
       padding: const EdgeInsets.symmetric(horizontal: 48),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text(
             'Dirección',
@@ -143,11 +143,11 @@ Widget buildDirecc(User user) => Container(
 Widget buildHorario(User user) => Container(
       padding: const EdgeInsets.symmetric(horizontal: 48),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text(
             'Horario',
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           Text(
@@ -172,32 +172,26 @@ Widget buildUbicacion(User user) => Container(
     );
 
 class MapScreen extends StatefulWidget {
+  List<Marker> myMarker = [];
+
   @override
   _MapScreenState createState() => _MapScreenState();
 }
 
 class _MapScreenState extends State<MapScreen> {
-  static const _initialCameraPosition = CameraPosition(
-    target: LatLng(20.94033959459825, -89.59601881349073),
-    zoom: 11.5,
-  );
-
-  late GoogleMapController _googleMapController;
-
-  @override
-  void dispose() {
-    _googleMapController.dispose();
-    super.dispose();
-  }
+  late GoogleMapController mapController; //contrller for Google map
+  Set<Marker> markers = new Set(); //markers for google map
+  static const LatLng showLocation =
+      const LatLng(20.943781926121023, -89.5940972859401);
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
-          bottomRight: Radius.circular(30),
+          bottomRight: const Radius.circular(30),
           bottomLeft: Radius.circular(30),
         ),
         child: Align(
@@ -205,12 +199,40 @@ class _MapScreenState extends State<MapScreen> {
           heightFactor: 10,
           widthFactor: 2.5,
           child: GoogleMap(
-            myLocationButtonEnabled: false,
-            zoomControlsEnabled: false,
-            initialCameraPosition: _initialCameraPosition,
+            zoomGesturesEnabled: true,
+            initialCameraPosition: const CameraPosition(
+              //innital position in map
+              target: showLocation, //initial position
+              zoom: 15.0, //initial zoom level
+            ),
+            markers: getmarkers(), //markers to show on map
+            mapType: MapType.normal, //map type
+            onMapCreated: (controller) {
+              //method called when map is created
+              setState(() {
+                mapController = controller;
+              });
+            },
           ),
         ),
       ),
     );
+  }
+
+  Set<Marker> getmarkers() {
+    //markers to place on map
+    setState(() {
+      markers.add(Marker(
+        //add first marker
+        markerId: MarkerId(showLocation.toString()),
+        position: showLocation, //position of marker
+        infoWindow: const InfoWindow(
+          //popup info
+          title: 'Deportivo Kukulkan',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+    });
+    return markers;
   }
 }
