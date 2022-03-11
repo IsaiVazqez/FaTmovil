@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:finding_a_tour/models/user.dart';
 import 'package:finding_a_tour/utils/user_preferences.dart';
 import 'package:finding_a_tour/widget/profile_widget.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class EditProfilePage extends StatefulWidget {
   @override

@@ -4,6 +4,7 @@ import 'package:finding_a_tour/widget/profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:finding_a_tour/routes/app_routes.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../routes/app_routes.dart';
 import '../utils/user_preferences.dart';
 import '../widget/appbar_widget.dart';
@@ -49,6 +50,13 @@ class _ProfilePageState extends State<ProfilePage> {
             buildDirecc(user),
             const SizedBox(height: 24),
             buildHorario(user),
+            const SizedBox(height: 24),
+            Container(
+              child: MapScreen(),
+              margin: const EdgeInsets.all(10),
+              width: 20,
+              height: 100,
+            )
           ],
         ),
         bottomNavigationBar: SnakeNavigationBar.color(
@@ -145,3 +153,26 @@ Widget buildHorario(User user) => Container(
         ],
       ),
     );
+
+class MapScreen extends StatefulWidget {
+  @override
+  _MapScreenState createState() => _MapScreenState();
+}
+
+class _MapScreenState extends State<MapScreen> {
+  static const _initialCameraPosition = CameraPosition(
+    target: LatLng(20.94033959459825, -89.59601881349073),
+    zoom: 11.5,
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: GoogleMap(
+        myLocationButtonEnabled: false,
+        zoomControlsEnabled: false,
+        initialCameraPosition: _initialCameraPosition,
+      ),
+    );
+  }
+}
