@@ -2,8 +2,10 @@ import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../screens/profile2_page.dart';
+
 AppBar buildAppBar(BuildContext context) {
-  final icon = CupertinoIcons.moon_stars;
+  const icon = CupertinoIcons.arrow_right_arrow_left_circle_fill;
 
   return AppBar(
     shape: const RoundedRectangleBorder(
@@ -17,11 +19,15 @@ AppBar buildAppBar(BuildContext context) {
         fontWeight: FontWeight.bold,
         fontFamily: 'SFPRODISPLAY'),
     actions: [
-/*       IconButton(
+      IconButton(
         icon: Icon(icon),
         color: Colors.white,
-        onPressed: () {},
-      ) */
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const ProfilePageDos()),
+          );
+        },
+      )
     ],
   );
 }

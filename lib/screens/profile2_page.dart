@@ -1,7 +1,9 @@
 import 'package:finding_a_tour/models/user.dart';
 import 'package:finding_a_tour/screens/edit_profile_page.dart';
+import 'package:finding_a_tour/screens/profile_page.dart';
 import 'package:finding_a_tour/screens/register_new_club.dart';
 import 'package:finding_a_tour/widget/profile_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:finding_a_tour/routes/app_routes.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
@@ -12,14 +14,16 @@ import '../widget/appbar_widget.dart';
 import '../widget/button_widget.dart';
 import '../widget/numbers_widget.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class ProfilePageDos extends StatefulWidget {
+  const ProfilePageDos({Key? key}) : super(key: key);
 
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  _ProfilePageDosState createState() => _ProfilePageDosState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+const icon = CupertinoIcons.arrow_right_arrow_left_circle;
+
+class _ProfilePageDosState extends State<ProfilePageDos> {
   int home = 1;
 
   @override
@@ -28,7 +32,30 @@ class _ProfilePageState extends State<ProfilePage> {
     final user = UserPreferences.myUser;
 
     return Scaffold(
-        appBar: buildAppBar(context),
+        appBar: AppBar(
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(22))),
+          automaticallyImplyLeading: false,
+          title: const Center(child: Text('Perfil222')),
+          elevation: 0,
+          titleTextStyle: const TextStyle(
+              fontSize: 20,
+              color: Color.fromARGB(255, 255, 255, 255),
+              fontWeight: FontWeight.bold,
+              fontFamily: 'SFPRODISPLAY'),
+          actions: [
+            IconButton(
+              icon: Icon(icon),
+              color: Colors.white,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ProfilePage()));
+              },
+            )
+          ],
+        ),
         body: ListView(
           physics: const BouncingScrollPhysics(),
           children: [
@@ -37,7 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
               imagePath: user.imagePath,
               onClicked: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => EditProfilePage()),
+                  MaterialPageRoute(builder: (context) => const ProfilePage()),
                 );
               },
             ),
