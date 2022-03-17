@@ -38,7 +38,11 @@ class AppRoutes {
         route: initialRoute2,
         screen: const HomeScreenDos()),
     ItemMenu(
-        label: 'Home Screen', route: initialRoute, screen: const HomeScreen()),
+        label: 'Home Screen',
+        route: servicesRoute2,
+        screen: const HomeScreen()),
+    ItemMenu(
+        label: 'Home Screen', route: tornRoute2, screen: const HomeScreen()),
   ];
 
   static Map<String, Widget Function(BuildContext)> getRoutes() {

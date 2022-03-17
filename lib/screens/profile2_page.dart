@@ -1,5 +1,4 @@
 import 'package:finding_a_tour/models/user.dart';
-import 'package:finding_a_tour/screens/edit_profile_page.dart';
 import 'package:finding_a_tour/screens/profile_page.dart';
 import 'package:finding_a_tour/screens/register_new_club.dart';
 import 'package:finding_a_tour/widget/profile_widget.dart';
