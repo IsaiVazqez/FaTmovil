@@ -17,6 +17,6 @@ class AppTheme {
           centerTitle: true,
           elevation: globalElevation,
           backgroundColor: primaryColor,
-          foregroundColor: Color.fromARGB(221, 19, 13, 13)),
+          foregroundColor: Color.fromARGB(221, 19, 13, 15)),
       scaffoldBackgroundColor: Colors.black87);
 }
