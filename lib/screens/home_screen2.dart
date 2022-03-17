@@ -5,14 +5,14 @@ import 'package:provider/provider.dart';
 
 import '../theme_model.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreenDos extends StatefulWidget {
+  const HomeScreenDos({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreenDos> createState() => _HomeScreenDosState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenDosState extends State<HomeScreenDos> {
   int home = 0;
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderRadius:
                     BorderRadius.vertical(bottom: Radius.circular(22))),
             automaticallyImplyLeading: false,
-            title: const Text('Finding A Tournament'),
+            title: const Text('Finding A Tournament2'),
             centerTitle: true,
             titleTextStyle: const TextStyle(
                 fontSize: 20,
@@ -120,10 +120,10 @@ class _HomeScreenState extends State<HomeScreen> {
               setState(() {
                 if (home == index) {
                   Navigator.pushReplacementNamed(
-                      context, AppRoutes.initialRoute);
+                      context, AppRoutes.initialRoute2);
                 } else {
                   Navigator.pushReplacementNamed(
-                      context, AppRoutes.profileRoute);
+                      context, AppRoutes.profileRoute2);
                 }
               });
             },

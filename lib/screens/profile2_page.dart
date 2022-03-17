@@ -10,7 +10,6 @@ import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../routes/app_routes.dart';
 import '../utils/user_preferences.dart';
-import '../widget/appbar_widget.dart';
 import '../widget/button_widget.dart';
 import '../widget/numbers_widget.dart';
 
@@ -117,9 +116,11 @@ class _ProfilePageDosState extends State<ProfilePageDos> {
           onTap: (index) {
             setState(() {
               if (home == index) {
-                Navigator.pushReplacementNamed(context, AppRoutes.profileRoute);
+                Navigator.pushReplacementNamed(
+                    context, AppRoutes.profileRoute2);
               } else {
-                Navigator.pushReplacementNamed(context, AppRoutes.initialRoute);
+                Navigator.pushReplacementNamed(
+                    context, AppRoutes.initialRoute2);
               }
             });
           },
